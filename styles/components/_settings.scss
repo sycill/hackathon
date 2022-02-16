@@ -1,0 +1,43 @@
+// ##### (rootpath fix)
+// `$rootpath = "../..";` on local server, but must be `$rootpath = "./..";` on Github
+// *Solution*: use a global variable (`$rootpath = "../.." !global;`), overridden by a '_rootpathLocal.scss' file (with `$rootpath = "./..";`) that is then ignored during the 'push' process.
+
+$rootpath: "./.."; // overidden by _rootpathLocal.scss locally only, because file ignored in .gitignore
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Fonts ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@font-face {
+  font-family: "Oswald-Regular";
+  src: url("#{$rootpath}/assets/fonts/Oswald/Oswald-Regular.ttf");
+}
+@font-face {
+  font-family: "Oswald-Semi-bold";
+  src: url("#{$rootpath}/assets/fonts/Oswald/Oswald-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Oswald-ExtraLight";
+  src: url("#{$rootpath}/assets/fonts/Oswald/Oswald-ExtraLight.ttf");
+}
+
+$font-1: "Oswald-Regular", sans-serif;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main colours ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$color-dark: #1e1e1e;
+$color-primary: #18223b;
+$color-secondary: #f6a11c;
+$color-light: #e4e5e4;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ General ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  user-select: none;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Button ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$button-radius: 15px;
